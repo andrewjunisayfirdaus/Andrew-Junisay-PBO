@@ -5,16 +5,21 @@ class Mario {
     positiony : number;
     invincible : boolean;
     currentform : string;
+    color : string;
 
-    constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string) {
+    constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string , color : string) {
         this.hp = hp;
         this.speed = speed;
         this.positionx = positionx;
         this.positiony = positiony;
         this.invincible = invincible;
         this.currentform = currentform;
+        this.color = color;
     }
-
+        warna () : string {
+        this.color = this.color =this.color;
+        return`Mario berubah warna ${this.positionx} Block`;
+    }
     bergerakKanan () : string {
         this.positionx = this.positionx += this.speed;
         return `Mario Bergerak Ke Kanan Sebanyak ${this.positionx} Block`;
@@ -41,12 +46,24 @@ class Mario {
         this.invincible = true;
         return `Mario Menjadi Invincible, Dan Mario Kebal Terhadap Serangan`;
     }
+     diserang () : string {
+        if(this.invincible == true){
+            return `mario kebal serangan`;
+        }
+        else {
+            this.hp = this.hp -=1;
+            return `Lalu mati`;
+        }
+    }
+    
+        
+    }
 
-}
+
 
 class superMario extends Mario {
-    constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string) {
-        super (hp, speed, positionx, positiony, invincible, currentform)
+    constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string , color : string) {
+        super (hp, speed, positionx, positiony, invincible, currentform,color)
     }
 
     superStar () : string {
@@ -68,8 +85,8 @@ class superMario extends Mario {
 }
 
 class fireMario extends Mario {
-    constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string) {
-        super (hp, speed, positionx, positiony, invincible, currentform)
+    constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string, color : string) {
+        super (hp, speed, positionx, positiony, invincible, currentform, color)
     }
 
     superStar () : string {
@@ -88,10 +105,14 @@ class fireMario extends Mario {
         }
     }
 
+   
+
 }
 
-const mario = new Mario (1, 5, 0, 0, false, "mario");
-const supermario = new superMario (2, 5, 0, 0, false, "superMario");
-const firemario = new fireMario (2, 5, 0, 0, false, "fireMario");
+const mario = new Mario (1, 5, 0, 0, false, "mario", "putih");
+const supermario = new superMario (2, 5, 0, 0, false, "superMario", "putih");
+const firemario = new fireMario (2, 5, 0, 0, false, "fireMario", "putih");
 
-console.log(mario.superStar());
+console.log(mario. warna ());
+console.log(supermario. diSerang ())
+console.log(firemario. superStar ())
